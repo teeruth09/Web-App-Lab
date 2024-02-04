@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEERUTH</title>
+
+    <!-- Boostrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Boostrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: url("https://img2.pic.in.th/pic/OIP5ffb322802ef8f05.jpeg") no-repeat fixed;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -9999;
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+        .banner {
+            background-color: rgba(20, 20, 20, 1);
+        }
+        .font-display {
+            font-family: 'Bodoni Moda', serif;
+        }
+        .limit-line {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        footer {
+            background-color: #f9f9f9;
+        }
+        .card {
+            background-color:rgb(194, 217, 251);
+            border: 1px solid black; 
+            border-radius: 8px; 
+        }
+        .article-box {
+            border: 2px solid blue;
+            padding: 10px; /* Padding inside the box */
+            border-radius: 8px; 
+        }
+        .box-style {
+            border: 5px solid white; 
+            padding: 10px;
+            display: inline-block; /* Keeps the box size to content */
+            border-radius: 5px; 
+            margin-right: 10px; /* Adjust the margin for the desired gap */
+            background-color: rgb(10, 169, 232);
+        }
+        .link-warning {
+            color: red; 
+            text-decoration: none;
+        }
+        .fw-semibold {
+        font-weight: bold;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
+        .slider-wrapper{
+            position: relative;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        .slider{
+            display: flex;
+            aspect-ratio: 16/9;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            border-radius: 0.5rem;
+        }
+        .slider img{
+            flex: 1 0 100%;
+            scroll-snap-align: start;
+            object-fit: cover;
+        }
+        .slider-nav{
+            display:flex;
+            column-gap: 1rem;
+            position:absolute;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-lg">
+        <a class="font-display fw-bold navbar-brand" href="#">TEERUTH</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggle-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id=navbar>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#news">My work</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#activity">Activity</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#videos">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hobby">Hobby</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#movie">Movie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#anime">Anime</a>
+                </li>
+
+            </ul>
+        </div>
+        <form class="d-lg-flex d-none" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- main class  -->
+<main class="container-lg">
+    <section class="banner text-white p-3 py-4 p-sm-5 rounded-4">
+        <header class="row gy-4">
+            <div class="col-12 col-md-3 text-center text-sm-start">
+                <img class="w-100 rounded-circle" width="300" src="https://img2.pic.in.th/pic/profile2.jpeg" alt="Teeruth profile">
+            </div>
+            <div class="col-12 col-md-9">
+                <h1 class="font-display fst-italic fw-semibold">TEERUTH IEOWSAKULRAT</h1>
+                <p class="fw-lighter">My name is Teeruth Ieowsakulrat.<br>My nick name is Ruth.<br>I'm studying in computer engineering at King Mongkut's Institute of Technology Ladkrabang.<br>You can contact me through the following links</p>
+                <div class="box-style">
+                    <a href="https://www.instagram.com/teeruth__/" target="_blank" class="link-warning fw-semibold">IG</a>
+                </div>
+                <div class="box-style">
+                    <a href="https://github.com/teeruth09" target="_blank" class="link-warning fw-semibold">github</a>
+                </div>
+                <div class="box-style">
+                    <a href="https://www.youtube.com/@user-gd3eh5tc1n/videos" target="_blank" class="link-warning fw-semibold">Youtube</a>
+                </div>
+            </div>
+        </header>
+    </section>
+    
+    <!-- My work -->
+    <section class="mt-4 mt-md-5">
+        <h2 class="font-display fw-semibold fst-italic" id="news">My work</h2>
+        <hr>
+        <article class="mb-5 article-box">
+            <h3 class="font-display fw-bold mb-0">Digital system fundamental project</h3>
+            <div class="mb-3"><small class="card-text text-muted">Monday, 13 Jan, 2023  <a href="https://github.com/teeruth09/digital-project/tree/main" target="_blank" class="fw-semibold">digital-project github link</a></small></div>
+            <p>Digital system fundamental project.<br>This project is in course subject Digital system fundamental 01076112<br>We did space revenger game by using FPGA board </p>
+        </article>
+        <article class="mb-5 article-box">
+            <h3 class="font-display fw-bold mb-0">Linear project</h3>
+            <div class="mb-3"><small class="card-text text-muted">Wednesday, 25 Oct, 2023  <a href="https://github.com/teeruth09/linear_project" target="_blank" class="fw-semibold">linear-project github link</a></small></div>
+            <p>Linear project.<br>This project is in course subject ELEMENTARY DIFFERENTIAL EQUATIONS AND LINEAR ALGEBRA  01076032<br>We did "Analyze the sentiment of the text and display the results of the meaning."
+                <br>Apply knowledge in the subject to use in the project.
+            </p>            
+        </article>
+        <article class="mb-5 article-box">
+            <h3 class="font-display fw-bold mb-0">Circuit project</h3>
+            <div class="mb-3"><small class="card-text text-muted">Wednesday, 5 Jul, 2023  <a href="https://github.com/teeruth09/circuit-project" target="_blank" class="fw-semibold">circuit-project github link</a></small></div>
+            <p>Circuit project.<br>This project is in course subject Circuit and Electronics
+                01076107<br>We did "Security Home".
+                <br>Apply knowledge in the subject to use in the project.
+                <br>Use arduino mega 2560 to develop this project.
+            </p>            
+        </article>
+        <article class="mb-5 article-box">
+            <h3 class="font-display fw-bold mb-0">Game project</h3>
+            <div class="mb-3"><small class="card-text text-muted">Friday, 11 Nov, 2022  <a href="https://github.com/teeruth09/SPACE-REVENGER" target="_blank" class="fw-semibold">game-project github link</a></small></div>
+            <p>Game project.<br>This project is in course subject  Programming Fundamental 01076103
+                <br>I did "Space revenger".
+                <br>Use pygame to develop this project.
+            </p>            
+        </article>
+    </section>
+
+    <!-- Activity -->
+    <section class="mt-4 mt-md-5 pb-4">
+        <h2 class="font-display fw-semibold fst-italic" id="activity">My Activity</h2>
+        <br>
+        <div class="row gy-2 gy-md-0 gx-md-3">
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 order-md-last">
+                            <img class="object-fit-cover w-100 h-100 img-fluid rounded-end" src="https://img2.pic.in.th/pic/79ntt6va.png" alt="Hello CE">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-4">
+                                <div class="card-text fw-bold text-danger mb-1">HELLO CE</div>
+                                <h2 class="card-title font-display mb-0 fw-semibold text-truncate">HELLO CE</h2>
+                                <div class="mb-2"><small class="card-text text-muted">Aug 6, 2023</small></div>
+                                <p class="card-text limit-line">HELLO CE is Code Deciphering Activity in Computer Engineering at KMITL.</p>
+
+                                <a href="https://www.instagram.com/p/CvPe9CYLoZv/?img_index=1" target="_blank" class="link-primary fw-semibold">More details...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 order-md-last">
+                            <img class="object-fit-cover w-100 h-100 img-fluid rounded-end" src="https://img2.pic.in.th/pic/prerobot.jpeg" alt="PRE Robot">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-4">
+                                <div class="card-text fw-bold text-danger mb-1">PRE Robot</div>
+                                <h2 class="card-title font-display mb-0 fw-semibold text-truncate">PRE Robot</h2>
+                                <div class="mb-2"><small class="card-text text-muted">July 22-23, 2023</small></div>
+                                <p class="card-text limit-line">PRE Robot is the first robot camp for freshmen from Robot Club KMITL.</p>
+
+                                <a href="https://web.facebook.com/photo/?fbid=712414690898701&set=a.470626721744167" target="_blank" class="link-primary fw-semibold">More details...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 order-md-last">
+                            <img class="object-fit-cover w-100 h-100 img-fluid rounded-end" src="https://img5.pic.in.th/file/secure-sv1/ceboostup.jpeg" alt="CE BOOSTUP">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-4">
+                                <div class="card-text fw-bold text-danger mb-1">CE BOOSTUP</div>
+                                <h2 class="card-title font-display mb-0 fw-semibold text-truncate">CE BOOSTUP XI</h2>
+                                <div class="mb-2"><small class="card-text text-muted">June 16-19, 2023</small></div>
+                                <p class="card-text limit-line">CE BOOSTUP XI is Basic camp for first-year students in Computer Engineering at KMITL.</p>
+
+                                <a href="https://web.facebook.com/ceboostup" target="_blank" class="link-primary fw-semibold">More details...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 order-md-last">
+                            <img class="object-fit-cover w-100 h-100 img-fluid rounded-end" src="https://img5.pic.in.th/file/secure-sv1/k-engineer.jpeg" alt="PRE Engineering">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-4">
+                                <div class="card-text fw-bold text-danger mb-1">PRE Engineering</div>
+                                <h2 class="card-title font-display mb-0 fw-semibold text-truncate">PRE ENGINEERING 2023</h2>
+                                <div class="mb-2"><small class="card-text text-muted">June 10-12, 2023</small></div>
+                                <p class="card-text limit-line">PRE ENGINEERING 2023 is a camp for first-year students in Faculty of Engineering KMITL.</p>
+
+                                <a href="https://web.facebook.com/photo/?fbid=625928209558598&set=a.459183066233114" target="_blank" class="link-primary fw-semibold">More details...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos -->
+    <section class="mt-4 mt-md-5 pb-4">
+        <h2 class="font-display fw-semibold fst-italic text-center" id="videos">Videos</h2>
+        <p class="text-center fw-light">My Youtube channel <a class="link-danger fw-semibold" href="https://www.youtube.com/@user-gd3eh5tc1n/videos" target="_blank">Teeruth</a>, filled with quality contents about my project </p>
+
+        <section class="mt-5">
+            <div class="row g-3">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" src="https://img5.pic.in.th/file/secure-sv1/image-5bf09ff42e24cca9e.png" alt="Youtube Thumbnail">
+                        <div class="card-body p-4">
+                            <h3 class="card-title font-display mb-0 fw-semibold text-truncate">Space invader FPGA</h3>
+                            <div class="mb-2"><small class="card-text text-muted">2 months ago</small></div>
+                            <p class="card-text limit-line">Digital system fundamental project use FPGA</p>
+
+                            <a href="https://youtu.be/SO5ZU7S7A88?si=0r0xvrI38f6deM91" target="_blank" class="link-primary fw-semibold">Watch full video...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" src="https://img5.pic.in.th/file/secure-sv1/LINUX-OS.jpeg" alt="Youtube Thumbnail">
+                        <div class="card-body p-4">
+                            <h3 class="card-title font-display mb-0 fw-semibold text-truncate">Spa Assignment 2566</h3>
+                            <div class="mb-2"><small class="card-text text-muted">2 months ago</small></div>
+                            <p class="card-text limit-line">Spa Assignment project install and setting ubuntu server use Virtual Box</p>
+
+                            <a href="https://youtu.be/xMBrI7d5E9Y?si=hlVO8Zm6rL-DesMc" target="_blank" class="link-primary fw-semibold">Watch full video...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" src="https://img5.pic.in.th/file/secure-sv1/toc_project.png" alt="Youtube Thumbnail">
+                        <div class="card-body p-4">
+                            <h3 class="card-title font-display mb-0 fw-semibold text-truncate">Toy Gae nao</h3>
+                            <div class="mb-2"><small class="card-text text-muted">3 months ago</small></div>
+                            <p class="card-text limit-line">Theory of computation project.
+                                <br>Toy Gae Nao game use finite automata logic to develop.
+                            </p>
+                            <a href="https://youtu.be/XC0xTSDVpvU?si=0DjqNe7Ghtp4zKRE" target="_blank" class="link-primary fw-semibold">Watch full video...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" src="https://img2.pic.in.th/pic/linear_project.png" alt="Youtube Thumbnail">
+                        <div class="card-body p-4">
+                            <h3 class="card-title font-display mb-0 fw-semibold text-truncate">Sentence Analysis</h3>
+                            <div class="mb-2"><small class="card-text text-muted">3 months ago</small></div>
+                            <p class="card-text limit-line">Linear Algebra project.
+                                <br>Sentence Analysis use knowledge from subject to apply this project .
+                            </p>
+                            <a href="https://youtu.be/J23NyaNTOqk?si=l41ZY4E2GIAYA0fN" target="_blank" class="link-primary fw-semibold">Watch full video...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <p class="text-center mt-4 fw-light">Don't forget to follow my channel so you don't miss any new content.<a class="link-danger fw-semibold" href="https://www.youtube.com/@user-gd3eh5tc1n/videos" target="_blank"><br>click here to see my youtube channel</a></p>
+    </section>  
+
+    <!-- Hobby -->
+    <section class="mt-4 mt-md-5 pb-4">
+        <h2 class="font-display fw-semibold fst-italic text-center" id="hobby">Hobby</h2>
+        <h3>My Hobby is play badminton</h3>
+        <div id="imageSlider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://img2.pic.in.th/pic/b152135a9e53d4c59b.jpeg" class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img5.pic.in.th/file/secure-sv1/b27e81773b8f80cbfa.jpeg" class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img2.pic.in.th/pic/b3dc7078cdea40792b.jpeg" class="d-block w-100" alt="Slide 3">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>  
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="mt-4 mt-md-5 pb-4">
+        <h2 class="font-display fw-semibold fst-italic text-center" id="contact">Contact</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="https://www.instagram.com/teeruth__/" target="_blank">
+                        <img src="https://img5.pic.in.th/file/secure-sv1/ig2e3230adf1b6d5cc.jpeg" alt="Image 1" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="https://github.com/teeruth09" target="_blank">
+                        <img src="https://img5.pic.in.th/file/secure-sv1/github.png" alt="Image 2" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie -->
+    <section class="mt-4 mt-md-5 pb-4">
+        <h2 class="font-display fw-semibold fst-italic" id="movie">Movie</h2>
+        <hr>
+        <p>My favorite movie is Spiderman No Way Home.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://img5.pic.in.th/file/secure-sv1/movie3.png" alt="Image 1" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <img src="https://img2.pic.in.th/pic/movie2.jpeg" alt="Image 1" class="img-fluid">
+                </div>
+            </div>
+        <br>
+        <p>
+            Spider-Man: No Way Home is a 2021 American superhero film based on the Marvel Comics character Spider-Man, 
+            co-produced by Columbia Pictures and Marvel Studios, and distributed by Sony Pictures Releasing. 
+            It is the sequel to Spider-Man: Homecoming (2017) and Spider-Man: Far From Home (2019), 
+            and the 27th film in the Marvel Cinematic Universe (MCU). The film was directed by Jon Watts and written by Chris McKenna and Erik Sommers. 
+            It stars Tom Holland as Peter Parker / Spider-Man alongside Zendaya, Benedict Cumberbatch, Jacob Batalon, Jon Favreau, Jamie Foxx, Willem Dafoe, Alfred Molina, Benedict Wong, Tony Revolori, Marisa Tomei, Andrew Garfield, and Tobey Maguire. 
+            In the film, Parker asks Dr. Stephen Strange (Cumberbatch) to use magic to make his identity as Spider-Man a secret again after this was revealed to the world at the end of Far From Home. 
+            When the spell goes wrong because of Parker's actions, the multiverse is broken open and visitors from alternate realities are brought into Parker's universe.
+        </p>
+        </div>
+    </section>
+
+    <!-- Anime -->
+    <section class="mt-4 mt-md-5 pb-4">
+        <h2 class="font-display fw-semibold fst-italic" id="anime">Anime</h2>
+        <hr>
+        <p>My favorite anime is katekyo hitman reborn .</p>
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img id="slide-1" src="https://img2.pic.in.th/pic/anime1.jpeg">
+                <img id="slide-2" src="https://img2.pic.in.th/pic/anime2.jpeg">
+                <img id="slide-3" src="https://img2.pic.in.th/pic/anime3.jpeg">
+            </div>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+        <p>
+            Reborn!, known in Japan as Katekyō Hitman Reborn! (Japanese: 家庭教師ヒットマンREBORN!, Hepburn: Katekyō Hittoman Ribōn![a]) 
+            and also as Hitman Reborn! for disambiguation purposes, is a Japanese manga series written and illustrated by Akira Amano. 
+            It was serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump from May 2004 to November 2012, with its chapters collected into 42 tankōbon volumes.
+             The series follows Tsunayoshi Sawada, a young boy who discovers that he is next in line to become boss of the Vongola family, a powerful Mafia organization. The Vongolas' most powerful hitman, a gun-toting infant named Reborn, is sent to teach Tsuna how to be a boss.
+            An anime television series adaptation by Artland was broadcast on TV Tokyo from October 2006 to September 2010, and ran for 203 episodes. A number of video games, light novels, and other products were also created based on the series. 
+            In North America, Viz Media licensed the manga and the streaming rights for the television series for English release. Viz Media only published the first sixteen volumes, with the last one being released in July 2010. Discotek Media later licensed the home video rights for the television series for subbed-only release.
+            Reborn! is one of the best-selling manga series of Weekly Shōnen Jump, with over 30 million copies in circulation. 
+            Reviewers praised its humor, storylines, fights and character designs, noting that the series grew more violent after volume eight, becoming a more typical shōnen series.
+        </p>
+        </div>
+
+    </section>
+</main>
+
+<div class="text-center mb-4"><a href="#" class="link-dark">Back to top ^</a></div>
+<footer class="border-top py-5 text-center">
+    <small>65010495 Teeruth Ieowsakulrat</small>
+</footer>
+
+</body>
+</html>

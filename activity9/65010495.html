@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div id="maincontainer"></div>
+        <script>
+            var mainContainer = document.getElementById("maincontainer");
+            var heading = document.createElement("h2");
+            heading.textContent = "Exercise 04: JavaScript&DOM";
+            mainContainer.appendChild(heading)
+
+            //------------------------------------------------------------webworker----------------------------------------------------------
+            let colors = ["red","blue","green","yellow","pink","orange"]
+            let text_color = ["orange","pink","yellow","green","blue","red"]
+            let div_date = document.createElement("div");
+            div_date.style.marginBottom = "2rem";
+            div_date.style.height = "10px";
+
+            let button = document.createElement("button");
+            button.textContent = "Click me to display date and time";
+            var worker;
+            let stopclock = false;
+            let i = 0; // Initialize an index variable for the colors array
+
+            button.addEventListener("click", function () {
+            if (stopclock) {
+                worker.terminate();
+                worker = undefined;
+                stopclock = false;//set stopclock = false
+                button.style.position = "static";
+                button.style.top = "auto";
+                button.style.left = "auto";
+            } 
+            else {
+                if (typeof(worker) == "undefined") {
+                    worker = new Worker("webworker.js");
+                }
+                    worker.onmessage = function (event) {
+                        button.style.position = "fixed";
+                        button.style.top = "0";
+                        button.style.right = "0";
+                        button.style.zIndex = "9999";
+                        button.textContent = event.data;
+                        button.style.backgroundColor = colors[i]; // Set the background color of the button
+                        button.style.color = text_color[i];
+                        i = (i + 1) % colors.length; // Update the index to cycle through the colors
+                    };
+                    worker.postMessage("start");
+                    stopclock = true;//set true when next click to stopclock  
+                }
+            });
+            div_date.appendChild(button);
+            mainContainer.appendChild(div_date);
+
+            //-------------------------------------------Personal_Info--------------------------------------------------------
+            var linebreak = document.createElement("br");
+            mainContainer.appendChild(linebreak);
+
+            var personalInfo = document.createElement("h3");
+            personalInfo.textContent = "Personal_Info";
+            personalInfo.style.textDecoration = "underline";
+            personalInfo.style.color = "magenta";
+            personalInfo.style.backgroundColor = "";
+            personalInfo.style.display = "inline-block"; //set a width and height
+            personalInfo.style.padding = "1px"; // Add padding to make the background color fit the text
+
+            // Function to fit background color to text content
+            function fitBackgroundColor() {
+                var textWidth = personalInfo.offsetWidth
+                var textHeight = personalInfo.offsetHeight
+                personalInfo.style.width = textWidth;
+                personalInfo.style.height = textHeight;
+            }
+            
+            personalInfo.onmouseover = function() {
+                this.style.cursor = "pointer"; // Change cursor on mouseover
+                this.style.color = "blue";
+                this.style.backgroundColor = "yellow";
+                fitBackgroundColor();//Call function fitBackgroundColor
+            };
+            personalInfo.onmouseout = function() {
+                this.style.cursor = "default"; // Restore default cursor on mouseout
+                this.style.color = "magenta";
+                this.style.backgroundColor = "";
+                fitBackgroundColor();
+            };
+            personalInfo.onclick = hide_and_show; //Assign onclick event
+
+            mainContainer.appendChild(personalInfo);
+
+            // Create container div for the personal info and list
+            var div_info = document.createElement("div");
+            div_info.style.webkitTextFillColor = "black";
+            
+            //create <ul> to assign text in Personal_Info 
+            var personal_detail = document.createElement("ul");
+            var detail_items = ["Teeruth Ieowsakulrat, ID:65010495","Subject: WEB APPLICATION DEVELOPMENT","Semester: 2/2566"]
+ 
+            for (let j = 0; j < detail_items.length; j++) {
+                var li = document.createElement("li");
+                li.textContent = detail_items[j];
+                personal_detail.appendChild(li);
+            }
+
+            // Hide the list by default
+            personal_detail.hidden = true;     
+
+            // Function to hide and show text inside Personal_Info
+            function hide_and_show() {
+               personal_detail.hidden = !personal_detail.hidden;
+            }            
+            div_info.appendChild(personal_detail); 
+            // Append div_info to mainContainer
+            mainContainer.appendChild(div_info);
+
+
+            //-------------------------------------------Snapshots--------------------------------------------------------
+            mainContainer.appendChild(linebreak);
+            var snapShot = document.createElement("h1");
+            snapShot.textContent = "Snapshots";
+            mainContainer.appendChild(snapShot);
+            
+            var snap_list = document.createElement("ul");
+            var name_snap = ["Reborn1","Reborn2","Reborn3","Spiderman"];
+            var snap_shot = document.createElement("img");
+            var snap_imgs = ["https://img2.pic.in.th/pic/kmitllogo.jpeg"
+                            ,"https://img2.pic.in.th/pic/imresizer-1707642722822.jpeg","https://img2.pic.in.th/pic/imresizer-1707654345325.jpeg"
+                            ,"https://img2.pic.in.th/pic/imresizer-1707654382615.jpeg","https://img2.pic.in.th/pic/imresizer-1707654866238.jpeg"];
+
+                                
+            for (let i = 0; i < snap_imgs.length-1; i++) {
+                var listItem = document.createElement("li");
+                var link = document.createElement("a");
+                link.href = "#";
+                link.textContent = name_snap[i];
+                link.style.color = "blue";
+
+                link.onclick = function() {
+                    // Set the image source directly
+                    snap_shot.src = snap_imgs[i+1];
+                };
+                listItem.appendChild(link);
+                snap_list.appendChild(listItem);
+            }
+            snap_shot.src = snap_imgs[0];
+            snap_shot.setAttribute("width","500");
+            mainContainer.appendChild(snap_list);
+            mainContainer.appendChild(snap_shot);
+
+            //----------------------------------------------------------------------------------------------------------------
+        </script>
+    </body>
+</html>
